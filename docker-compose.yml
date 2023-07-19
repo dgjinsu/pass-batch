@@ -8,12 +8,11 @@ services:                                         # 서비스들을 선언합니
     volumes:                                      # {호스트}:{컨테이너}
       - ./db/conf.d:/etc/mysql/conf.d             # MySQL 설정 파일이 있습니다.
       - ./db/initdb.d:/docker-entrypoint-initdb.d # sh, sql을 파일명 알파벳순으로 수행합니다. 테이블 create, insert 쿼리 파일이 들어있습니다.
-    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
     ports:                                        # 외부로 노출시킬 port 입니다.
       - "3307:3306"
     environment:                                  # 환경 변수
       - MYSQL_DATABASE=pass_local
-      - MYSQL_USER=pass_local_user
-      - MYSQL_PASSWORD=passlocal123
-      - MYSQL_ROOT_PASSWORD=passlocal123
+      - MYSQL_USER=jinsu
+      - MYSQL_PASSWORD=1234
+      - MYSQL_ROOT_PASSWORD=1234
       - TZ=Asia/Seoul

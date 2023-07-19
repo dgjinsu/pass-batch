@@ -14,19 +14,21 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@EnableBatchProcessing
 @SpringBootApplication
 public class PassBatchApplication {
 
-	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
+	private final JobBuilderFactory jobBuilderFactory;
 
-	@Autowired
-	private StepBuilderFactory stepBuilderFactory;
+	private final StepBuilderFactory stepBuilderFactory;
+
+	public PassBatchApplication(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+		this.jobBuilderFactory = jobBuilderFactory;
+		this.stepBuilderFactory = stepBuilderFactory;
+	}
 
 	@Bean
 	public Step passStep() {
-		return this.stepBuilderFactory.get("passStep")
+		return this.stepBuilderFactory.get("passStep") //step 이름 지정
 				.tasklet(new Tasklet() {
 					@Override
 					public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
