@@ -9,4 +9,4 @@ spring:
 
   batch:
     jdbc:
-      initialize-schema: always
+      initialize-schema: always # batch repo 테이블 자동 생성
