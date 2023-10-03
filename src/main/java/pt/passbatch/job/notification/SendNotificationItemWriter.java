@@ -27,6 +27,7 @@ public class SendNotificationItemWriter implements ItemWriter<NotificationEntity
     public void write(List<? extends NotificationEntity> items) throws Exception {
         int count = 0;
         for (NotificationEntity notification : items) {
+            // 카카오톡 보내기 시도 후 성공 여부 반환
             boolean successful = kakaoTalkMessageAdapter.sendKakaoTalkMessage(notification.getUuid(), notification.getText());
             if(successful) {
                 notification.setSent(true);

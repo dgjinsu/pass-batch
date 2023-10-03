@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @ToString
 @Entity
 @Table(name = "user_group_mapping")
-@IdClass(UserGroupMappingId.class)
+@IdClass(UserGroupMappingId.class) // 두 필드를 묶어 pk 선언
 public class UserGroupMappingEntity extends BaseEntity {
     @Id
     private String userGroupId;

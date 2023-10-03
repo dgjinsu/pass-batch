@@ -19,6 +19,10 @@ public class AddPassesJobConfig {
         this.addPassesTasklet = addPassesTasklet;
     }
 
+
+    /**
+     * tasklet 방식
+     */
     @Bean
     public Job addPassesJob() {
         return this.jobBuilderFactory.get("addPassesJob")
@@ -29,7 +33,7 @@ public class AddPassesJobConfig {
     @Bean
     public Step addPassesStep() {
         return this.stepBuilderFactory.get("addPassesStep")
-                .tasklet(addPassesTasklet)
+                .tasklet(addPassesTasklet) // reader, writer, processor 를 설정해줬던 chunk 방식과 다름
                 .build();
     }
 }

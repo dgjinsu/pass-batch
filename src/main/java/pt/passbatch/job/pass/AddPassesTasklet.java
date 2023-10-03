@@ -46,7 +46,7 @@ public class AddPassesTasklet implements Tasklet {
         return RepeatStatus.FINISHED;
     }
 
-    // bulkPass 의 정보로 pass 데이터 생성
+    // bulkPass 와 usrId 정보로 pass 데이터 생성
     private int addPasses(BulkPassEntity bulkPassEntity, List<String> userIds) {
         List<PassEntity> passEntities = new ArrayList<>();
         for(String userId: userIds) {

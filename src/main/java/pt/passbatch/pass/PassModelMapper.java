@@ -13,7 +13,7 @@ import org.mapstruct.factory.Mappers;
 public interface PassModelMapper {
     PassModelMapper INSTANCE = Mappers.getMapper(PassModelMapper.class);
 
-    // 필드명이 같지 않거나 custom하게 매핑해주기 위해서는 @Mapping을 추가해주면 됩니다.
+    // 필드명이 같지 않거나 custom 하게 매핑해주기 위해서는 @Mapping을 추가해주면 됩니다.
     @Mapping(target = "status", qualifiedByName = "defaultStatus")
     @Mapping(target = "remainingCount", source = "bulkPassEntity.count")
     PassEntity toPassEntity(BulkPassEntity bulkPassEntity, String userId);
